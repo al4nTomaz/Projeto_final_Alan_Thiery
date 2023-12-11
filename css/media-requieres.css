@@ -1,0 +1,38 @@
+@media screen and (max-width: 480px) {
+  header {
+    justify-content: center;
+    padding: 10px 10px;
+    gap: 10px;
+  }
+
+  .header-img {
+    width: 40%;
+    margin-left: 70px;
+  }
+
+  .container {
+    gap: 20px;
+  }
+
+  .container-text {
+    text-align: center;
+  }
+
+  .container-text h1 {
+    font-size: 2.12rem;
+  }
+
+  .container-text p {
+    font-size: 1.1rem;
+  }
+
+  .container-card {
+    flex-direction: column;
+  }
+
+  .card {
+    height: 400px;
+    width: 100%;
+    padding: 20px 0px;
+  }
+}

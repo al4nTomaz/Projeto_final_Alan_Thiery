@@ -1,12 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/media-requieres.css" />
+    <title>Projeto Chuck Norris</title>
+  </head>
+  <body>
+    <header>
+      <figure>
+        <a href="#main">
+          <img
+            class="header-img"
+            src="./img/logo22.png"
+            alt="Logo do Chuck Norris"
+          />
+        </a>
+      </figure>
+
+      <nav>
+        <ul>
+          <li><a href="#main">Cards</a></li>
+          <li><a href="#form">Formulário</a></li>
+          <li><a href="#footer">Sobre Nós</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="container-text">
+          <h1>Curiosidades do Chuck Norris</h1>
+          <p>
+            Aqui você verá diversas curiosidades do Chuck Norris em formato de
+            Cards, será possivel excluir aqueles que você quiser!!
+          </p>
+        </div>
+        <div class="container-card">
+          <div class="card">
+            <h2>CARD 1</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea
+              mollitia modi, culpa laboriosam atque, repudiandae veritatis
+              saepe, aperiam aliquid deleniti neque minima ad? Dolorem
+              repellendus accusamus quasi cumque consequatur placeat.
+            </p>
+            <button>
+              <a href="">EXCLUIR</a>
+            </button>
+          </div>
+          <div class="card">
+            <h2>CARD 2</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea
+              mollitia modi, culpa laboriosam atque, repudiandae veritatis
+              saepe, aperiam aliquid deleniti neque minima ad? Dolorem
+              repellendus accusamus quasi cumque consequatur placeat.
+            </p>
+            <button>
+              <a href="">EXCLUIR</a>
+            </button>
+          </div>
+          <div class="card">
+            <h2>CARD 3</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea
+              mollitia modi, culpa laboriosam atque, repudiandae veritatis
+              saepe, aperiam aliquid deleniti neque minima ad? Dolorem
+              repellendus accusamus quasi cumque consequatur placeat.
+            </p>
+            <button>
+              <a href="">EXCLUIR</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section id="form">
+      <h2>Formulário para cadastrar uma curiosidade sobre o Chuck Norris!!</h2>
+
+      <form action="" method="post">
+        <div class="column">
+          <div>
+            <label for="titulo">Digite o título do card:</label>
+            <input
+              type="text"
+              name="titulo"
+              id="titulo"
+              placeholder="Digite o Titulo"
+            />
+          </div>
+
+          <div>
+            <label for="curiosidade">Digite a curiosidade que você sabe:</label>
+            <textarea name="curiosidade" id="curiosidade"></textarea>
+          </div>
+          <div>
+            <input type="submit" value="Enviar Formulário" />
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <footer></footer>
+
     <script src="./js/script.js"></script>
-</body>
+  </body>
 </html>

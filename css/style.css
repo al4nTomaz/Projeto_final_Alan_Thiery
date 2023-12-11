@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --primary: RGB(255, 228, 196);
+  --secondary: RGB(222, 184, 135);
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: bisque;
+}
+
+.header-img {
+  width: 70%;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  flex-direction: row;
+  padding: 0px 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.25rem;
+}
+
+nav ul li a:hover {
+  color: red;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  background-color: burlywood;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.container-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.container-text h1 {
+  font-size: 3.12rem;
+}
+
+.container-text p {
+  width: 70%;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.container-card {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 35px 0px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 300px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -6px 16px 24px -1px rgba(0, 0, 0, 0.75);
+  background-color: var(--primary);
+}
+
+.card h2 {
+  font-size: 2.18rem;
+}
+
+.card p {
+  width: 60%;
+  text-align: center;
+}
+
+.card button {
+  width: 200px;
+  height: 50px;
+  border: none;
+  background-color: var(--secondary);
+}
+
+.card button :hover {
+  color: red;
+}
+
+.card button a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.12rem;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 35px 40px;
+  background-color: rgb(230, 157, 105);
+}
+
+#form h2 {
+  font-size: 2rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+input[type="text"] {
+  width: 350px;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: var(--primary);
+  padding: 0px 15px;
+  font-size: 1rem;
+}
+
+input[type="submit"] {
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--secondary);
+  color: black;
+  font-size: 1.25rem;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+  color: red;
+}
+
+input[type="text"]::placeholder {
+  color: black;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  min-height: 150px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 15px 15px;
+  background-color: var(--primary);
+}
