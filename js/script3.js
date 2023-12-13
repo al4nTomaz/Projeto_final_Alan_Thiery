@@ -1,40 +1,46 @@
-const getPost2 = async () => {
-    
+var apiData;
+
+const getPost = async () => {
   try {
-      const apiData = document.getElementById('apiData')
-    
+    apiData = document.getElementById("apiData");
     const res = await fetch(`https://api.chucknorris.io/jokes/random`);
     const data = await res.json();
 
     if (!res.ok) {
       return data.error;
     }
-    
-      apiData.textContent = JSON.stringify(data.value);
-      
-  //   console.log(data.value);
+
+    return data;
   } catch (error) {
     console.log(`Erro - ${error}`);
   }
 };
 
+const getPost2 = async () => {
+  try {
+    let data = getPost();
+
+    apiData.textContent = JSON.stringify(data.value);
+  } catch (error) {
+    console.log(`Erro - ${error}`);
+  }
+};
 getPost2();
 
 const getPost3 = async () => {
-  
   try {
-      const apiData = document.getElementById('apiData2')
-    
+    const apiData = document.getElementById("apiData2");
+
     const res = await fetch(`https://api.chucknorris.io/jokes/random`);
     const data = await res.json();
 
     if (!res.ok) {
       return data.error;
     }
-    
-      apiData.textContent = JSON.stringify(data.value);
-      
-  //   console.log(data.value);
+
+    apiData.textContent = JSON.stringify(data.value);
+
+    //   console.log(data.value);
   } catch (error) {
     console.log(`Erro - ${error}`);
   }
@@ -42,20 +48,19 @@ const getPost3 = async () => {
 
 getPost3();
 const getPost4 = async () => {
-  
   try {
-      const apiData = document.getElementById('apiData3')
-    
+    const apiData = document.getElementById("apiData3");
+
     const res = await fetch(`https://api.chucknorris.io/jokes/random`);
     const data = await res.json();
 
     if (!res.ok) {
       return data.error;
     }
-    
-      apiData.textContent = JSON.stringify(data.value);
-      
-  //   console.log(data.value);
+
+    apiData.textContent = JSON.stringify(data.value);
+
+    //   console.log(data.value);
   } catch (error) {
     console.log(`Erro - ${error}`);
   }
@@ -63,21 +68,19 @@ const getPost4 = async () => {
 
 getPost4();
 
-
-var categorias = document.getElementById('categorias');
+var categorias = document.getElementById("categorias");
 
 const getPost5 = async () => {
-    
   try {
-    const apiData = document.getElementById('categorias');
-    
+    const apiData = document.getElementById("categorias");
+
     const res = await fetch(`https://api.chucknorris.io/jokes/categories`);
     const data = await res.json();
 
     if (!res.ok) {
       return data.error;
     }
-    
+
     data.forEach((elemento) => {
       let card = `
             <div class="card">
@@ -86,20 +89,18 @@ const getPost5 = async () => {
                 </div>
             </div>    
         `;
-        categorias.innerHTML += card;
+      categorias.innerHTML += card;
     });
-    
 
-  //     apiData.textContent = JSON.stringify(data);
-      
-  //     data.forEach((element) => {
-  //       // apiData.textContent = JSON.stringify(data);
-  //       // console.log(`${element}`);
-  //     });
-  // //   console.log(data.value);
+    //     apiData.textContent = JSON.stringify(data);
+
+    //     data.forEach((element) => {
+    //       // apiData.textContent = JSON.stringify(data);
+    //       // console.log(`${element}`);
+    //     });
+    // //   console.log(data.value);
   } catch (error) {
     console.log(`Erro - ${error}`);
   }
 };
 getPost5();
-
