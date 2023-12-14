@@ -1,66 +1,138 @@
-//GET
+const getPost2 = async () => {
+  try {
+    const apiData = document.getElementById("apiData");
 
-//fetch
-const getPost = (id) => {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`) //endpoint
-      .then((response) => response.json()) //callback - promise
-      .then((json) => {
-        console.log(json);
-      }) // retorno
-      .catch((error) => console.log(error)); // capturar erro
-  };
+    const res = await fetch(`https://api.chucknorris.io/jokes/random`);
+    const data = await res.json();
+
+    if (!res.ok) {
+      return data.error;
+    }
+
+    apiData.textContent = JSON.stringify(data.value);
+
+    //   console.log(data.value);
+  } catch (error) {
+    console.log(`Erro - ${error}`);
+  }
+};
+getPost2();
+
+const getPost3 = async () => {
+  try {
+    const apiData = document.getElementById("apiData2");
+
+    const res = await fetch(`https://api.chucknorris.io/jokes/random`);
+    const data = await res.json();
+
+    if (!res.ok) {
+      return data.error;
+    }
+
+    apiData.textContent = JSON.stringify(data.value);
+
+    //   console.log(data.value);
+  } catch (error) {
+    console.log(`Erro - ${error}`);
+  }
+};
+
+getPost3();
+const getPost4 = async () => {
+  try {
+    const apiData = document.getElementById("apiData3");
+
+    const res = await fetch(`https://api.chucknorris.io/jokes/random`);
+    const data = await res.json();
+
+    if (!res.ok) {
+      return data.error;
+    }
+
+    apiData.textContent = JSON.stringify(data.value);
+
+    //   console.log(data.value);
+  } catch (error) {
+    console.log(`Erro - ${error}`);
+  }
+};
+
+getPost4();
+
+var categorias = document.getElementById("categorias");
+
+const getAll = async () => {
+  try {
+    const apiData = document.getElementById("categorias");
+
+    const res = await fetch(`https://api.chucknorris.io/jokes/categories`);
+    const data = await res.json();
+
+    if (!res.ok) {
+      return data.error;
+    }
+
+    data.forEach((elemento) => {
+      let card = `
+            <div class="card">
+                <div class="card-conteudo">
+                    <h2>${elemento}</h2>
+                </div>
+            </div>    
+        `;
+      categorias.innerHTML += card;
+    });
+
+    //     apiData.textContent = JSON.stringify(data);
+
+    //     data.forEach((element) => {
+    //       // apiData.textContent = JSON.stringify(data);
+    //       // console.log(`${element}`);
+    //     });
+    // //   console.log(data.value);
+  } catch (error) {
+    console.log(`Erro - ${error}`);
+  }
+};
+getAll();
+
+const cadastarJoke = async () => {
+  // preventDefult();
+
+  let titulo = document.getElementById("titulo");
+  let curiosidade = document.getElementById("curiosidade");
+
+  let confirmacao = confirm(`${titulo.value}\n\n${curiosidade.value}`);
   
-  getPost(1);
-  
-  // estruturar código assícrono de modo síncrono (Async / Await)
-  const getPost2 = async (id) => {
+  alert(confirmacao ? "Joke Cadastrada!" : "Joke Não Cadastrada! Tente Novamente!");
+}
+
+const deletePost = async (category) => {
     try {
-      const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+      const res = await fetch(
+        `https://api.chucknorris.io/jokes/random?category=${category}`,
+        {
+          method: "DELETE",
+        }
+      );
       const data = await res.json();
-  
-      if (!res.ok) {
-        console.log(data.description);
-        return;
-      }
-  
+      console.log("categoria deletada");
       console.log(data);
-    } catch (error) {
-      console.log(`Erro - ${error}`);
-    }
-  };
-  
-  getPost2(1);
-  
-  // ------------------------------------------------------------------------------
-  // GET ALL
-  
-  const getAllPosts = async () => {
-    try {
-      const res = await fetch(`https://jsonplaceholder.typicode.com/posts/`);
-      const data = await res.json();
   
       if (!res.ok) {
         console.log(data.description);
         return;
       }
-  
-      data.forEach((element) => {
-        console.log(
-          `Post: ${element.id} \n Título: ${element.title}, Descrição: ${element.body}, Usuário:  ${element.userId}`
-        );
-      });
     } catch (error) {
       console.log(`Erro - ${error}`);
     }
   };
   
-  getAllPosts();
+deletePost();
   
-  // ------------------------------------------------------------------------------
-  // POST
-  const createPost = async (novoPostJSON) => {
+const createPost = async (novoPostJSON) => {
     try {
-      const res = await fetch(`https://jsonplaceholder.typicode.com/posts`, {
+      const res = await fetch(`https://api.chucknorris.io/jokes/categories`, {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -69,7 +141,7 @@ const getPost = (id) => {
       });
   
       const data = await res.json();
-      console.log("inserir");
+      console.log("Inserir nova categoria");
       console.log(data);
   
       if (!res.ok) {
@@ -81,73 +153,11 @@ const getPost = (id) => {
     }
   };
   
-  let novoPost = {
-    userId: 1,
-    title: "Novo Post",
-    body: "quia et suscipitsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totamnostrum rerum est autem sunt rem eveniet architecto",
+  let postNovo = {
+    value: "Carro",
   };
   
   let novoPostJSON = JSON.stringify(novoPost);
   
-  createPost(novoPostJSON);
+createPost(novoPostJSON);
   
-  // ------------------------------------------------------------------------------
-  // PUT
-  const updatePost = async (id, postAlterado) => {
-    try {
-      const res = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-          body: postAlterado,
-        }
-      );
-      const data = await res.json();
-      console.log("alterar");
-      console.log(data);
-  
-      if (!res.ok) {
-        console.log(data.description);
-        return;
-      }
-    } catch (error) {
-      console.log(`Erro - ${error}`);
-    }
-  };
-  
-  let postAlterado = {
-    userId: 1,
-    title: "Alterado Post",
-    body: "quia et suscipitsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totamnostrum rerum est autem sunt rem eveniet architecto",
-  };
-  
-  let postAlteradoJSON = JSON.stringify(postAlterado);
-  updatePost(2, postAlteradoJSON);
-  
-  // ------------------------------------------------------------------------------
-  // DELETE
-  const deletePost = async (id) => {
-    try {
-      const res = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
-      const data = await res.json();
-      console.log("delete");
-      console.log(data); // retorna obj vazio
-  
-      if (!res.ok) {
-        console.log(data.description);
-        return;
-      }
-    } catch (error) {
-      console.log(`Erro - ${error}`);
-    }
-  };
-  
-  deletePost(2);
