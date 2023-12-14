@@ -1,6 +1,6 @@
 const getPost2 = async () => {
   try {
-    const apiData = document.getElementById("apiData");
+    const apiData = document.getElementById("p1");
 
     const res = await fetch(`https://api.chucknorris.io/jokes/random`);
     const data = await res.json();
@@ -20,7 +20,7 @@ getPost2();
 
 const getPost3 = async () => {
   try {
-    const apiData = document.getElementById("apiData2");
+    const apiData = document.getElementById("p2");
 
     const res = await fetch(`https://api.chucknorris.io/jokes/random`);
     const data = await res.json();
@@ -40,7 +40,7 @@ const getPost3 = async () => {
 getPost3();
 const getPost4 = async () => {
   try {
-    const apiData = document.getElementById("apiData3");
+    const apiData = document.getElementById("p3");
 
     const res = await fetch(`https://api.chucknorris.io/jokes/random`);
     const data = await res.json();
@@ -105,7 +105,7 @@ const cadastarJoke = async () => {
   alert(confirmacao ? "Joke Cadastrada!" : "Joke Não Cadastrada! Tente Novamente!");
 }
 
-const deletePost = async (category) => {
+const deleteCategoria = async (category) => {
     try {
       const res = await fetch(
         `https://api.chucknorris.io/jokes/random?category=${category}`,
@@ -122,24 +122,24 @@ const deletePost = async (category) => {
         return;
       }
     } catch (error) {
-      console.log(`Erro - ${error}`);
+      console.log(`Erro`);
     }
   };
   
-deletePost();
+deleteCategoria("animal");
   
-const createPost = async (novoPostJSON) => {
+const createJoke = async (novaCuriosidadeJSON) => {
     try {
-      const res = await fetch(`https://api.chucknorris.io/jokes/categories`, {
+      const res = await fetch(`https://api.chucknorris.io/jokes/random`, {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
-        body: novoPostJSON,
+        body: novaCuriosidadeJSON,
       });
   
       const data = await res.json();
-      console.log("Inserir nova categoria");
+      console.log("Inserir nova curiosidade");
       console.log(data);
   
       if (!res.ok) {
@@ -147,15 +147,16 @@ const createPost = async (novoPostJSON) => {
         return;
       }
     } catch (error) {
-      console.log(`Erro - ${error}`);
+      console.log(`Erro`);
     }
   };
   
-  let postNovo = {
-    value: "Carro",
+  let curiosidadeNova = {
+    value: "Chuck Norris é legal",
+    id: "chuck"
   };
   
-  let novoPostJSON = JSON.stringify(novoPost);
+  let novaCuriosidadeJSON = JSON.stringify(curiosidadeNova);
   
-createPost(novoPostJSON);
+createJoke(novaCuriosidadeJSON);
   
