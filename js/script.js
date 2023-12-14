@@ -74,10 +74,8 @@ const getAll = async () => {
 
     data.forEach((elemento) => {
       let card = `
-            <div class="card">
-                <div class="card-conteudo">
-                    <h2>${elemento}</h2>
-                </div>
+            <div class="card-categoria">
+              <h2>${elemento}</h2>
             </div>    
         `;
       categorias.innerHTML += card;
