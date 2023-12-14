@@ -1,8 +1,7 @@
-var apiData;
-
-const getPost = async () => {
+const getPost2 = async () => {
   try {
-    apiData = document.getElementById("apiData");
+    const apiData = document.getElementById("apiData");
+
     const res = await fetch(`https://api.chucknorris.io/jokes/random`);
     const data = await res.json();
 
@@ -10,17 +9,9 @@ const getPost = async () => {
       return data.error;
     }
 
-    return data;
-  } catch (error) {
-    console.log(`Erro - ${error}`);
-  }
-};
-
-const getPost2 = async () => {
-  try {
-    let data = getPost();
-
     apiData.textContent = JSON.stringify(data.value);
+
+    //   console.log(data.value);
   } catch (error) {
     console.log(`Erro - ${error}`);
   }
@@ -104,3 +95,14 @@ const getPost5 = async () => {
   }
 };
 getPost5();
+
+const cadastarJoke = async () => {
+  // preventDefult();
+
+  let titulo = document.getElementById("titulo");
+  let curiosidade = document.getElementById("curiosidade");
+
+  let confirmacao = confirm(`${titulo.value}\n\n${curiosidade.value}`);
+  
+  alert(confirmacao ? "Joke Cadastrada!" : "Joke Não Cadastrada! Tente Novamente!");
+}
